@@ -1,0 +1,75 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Base extraída do Kaggle no dia 02/01/2025 às 14h\n",
+    "\n",
+    "Link da Base de Dados = https://www.kaggle.com/datasets/imakash3011/customer-personality-analysis"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Objetivo do Projeto\n",
+    "O objetivo principal deste projeto é segmentar os clientes de uma base de dados por meio de técnicas de análise exploratória, estatística e modelagem (clusterização), a fim de identificar grupos com características semelhantes e fornecer insights estratégicos para decisões de negócios que poderão ser utilizados futuramente para otimizar campanhas de marketing. "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Bibliotecas usadas"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 21,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import pandas as pd\n",
+    "import numpy as np\n",
+    "import matplotlib.pyplot as plt\n",
+    "import seaborn as sns\n",
+    "import pingouin as pg\n",
+    "from scipy.stats import shapiro\n",
+    "from scipy.stats import mannwhitneyu\n",
+    "from scipy.stats import kruskal\n",
+    "import scikit_posthocs as sp"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Carregando os dados"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 22,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Carregando dados\n",
+    "df = pd.read_csv('marketing_campaign.csv', sep='\\t')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Visualizando a base"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 23,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
